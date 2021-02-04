@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
@@ -22,6 +22,12 @@ function Login(props) {
         console.log(form);
     }
 
+    useEffect(()=>{
+        if(cookies.get('id_user')){
+            props.history.push('/menu');
+        }
+    });
+
     const iniciarSesion = async () => {
         await axios.get(baseUrl + `/${form.username}/${form.password}`)
             .then(response => {
@@ -29,12 +35,12 @@ function Login(props) {
             }).then(response => {
                 if (response.length > 0) {
                     var respuesta = response[0];
-                    cookies.set('id', respuesta.id, {path: '/'});
+                    cookies.set('id_user', respuesta.id_user, {path: '/'});
                     cookies.set('apellido_paterno', respuesta.apellido_paterno, {path: '/'});
                     cookies.set('apellido_materno', respuesta.apellido_materno, {path: '/'});
                     cookies.set('nombre', respuesta.nombre, {path: '/'});
                     cookies.set('correo', respuesta.correo, {path: '/'});
-                    cookies.set('username', respuesta.username, {path: '/'});
+                    cookies.set('username', respuesta.ussername, {path: '/'});
                     cookies.set('password', respuesta.password, {path: '/'});
                     alert("Bienvenido: "+respuesta.nombre+" "+respuesta.apellido_paterno);
                     props.history.push('/menu');
