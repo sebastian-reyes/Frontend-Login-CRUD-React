@@ -19,7 +19,6 @@ function Login(props) {
             ...form,
             [name]: value
         });
-        console.log(form);
     }
 
     useEffect(()=>{
@@ -42,7 +41,6 @@ function Login(props) {
                     cookies.set('correo', respuesta.correo, {path: '/'});
                     cookies.set('username', respuesta.ussername, {path: '/'});
                     cookies.set('password', respuesta.password, {path: '/'});
-                    alert("Bienvenido: "+respuesta.nombre+" "+respuesta.apellido_paterno);
                     props.history.push('/menu');
                 } else {
                     alert("El usuario o contraseña es incorrecto");

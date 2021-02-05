@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
 import Cookies from 'universal-cookie';
+import CRUD from '../pages/CRUD';
 
 function Menu(props) {
 
@@ -25,7 +26,7 @@ function Menu(props) {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container">
                     <span className="navbar-brand mb-0 h1">CRUD ASP. NET Core</span>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navtop" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,21 +46,14 @@ function Menu(props) {
                     </div>
                 </div>
             </nav>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+            <div className="container mt-4">
+                <CRUD />
+            </div>
+            <nav className="navbar navbar-expand-lg navbar-dark fixed-bottom bg-black">
                 <div className="container">
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbottom" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbottom">
-                        <ul className="navbar-nav ml-auto">
-                            <li className="nav-item">
-                                <a className="btn btn-light" href="https://github.com/sebastian-reyes/Fronend-Login-CRUD-React"><i className="fa fa-github" aria-hidden="true"></i> Frontend <span className="sr-only">(current)</span></a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="btn btn-light ml-2" href="https://github.com/sebastian-reyes/API_Login_CRUD"><i className="fa fa-github" aria-hidden="true"></i> Backend <span className="sr-only">(current)</span></a>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul className="navbar-nav ml-auto">
+                        <span className="navbar-brand mb-0 h1 ">2021 Sebastián Reyes</span>
+                    </ul>
                 </div>
             </nav>
         </div>
