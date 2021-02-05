@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
+import '../css/sin_flechas_input.css';
 import Cookies from 'universal-cookie';
 import CRUD from '../pages/CRUD';
 

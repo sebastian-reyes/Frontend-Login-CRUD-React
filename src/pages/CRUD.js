@@ -62,7 +62,7 @@ function CRUD(props) {
 
     //Petición PUT
     const putProducto = async () => {
-        
+
         //Convirtiendo valores de texto a int, o decimal
         prodSelect.id_prod = parseInt(prodSelect.id_prod);
         prodSelect.stock_min = parseInt(prodSelect.stock_min);
@@ -73,7 +73,7 @@ function CRUD(props) {
             var respuesta = response.data;
             var dataAux = data;
             dataAux.map(producto => {
-                if (producto.id_prod == respuesta.id_prod) {
+                if (producto.id_prod === respuesta.id_prod) {
                     producto.nombre_prod = respuesta.nombre_prod;
                     producto.desc_prod = respuesta.desc_prod;
                     producto.stock_min = respuesta.stock_min;
@@ -88,7 +88,7 @@ function CRUD(props) {
     }
     const seleccionarProducto = (prod, caso) => {
         setprodSelect(prod);
-        (caso == "editar") && abrirCerrarModalEditar();
+        (caso === "editar") && abrirCerrarModalEditar();
     }
 
     useEffect(() => {
@@ -99,7 +99,7 @@ function CRUD(props) {
         <div>
             <h1 className="text-center">Mantenimiento de tabla Productos</h1>
             <br />
-            <button className="btn btn-success" onClick={() => abrirCerrarModal()}>Nuevo Producto</button>
+            <button className="btn btn-success" onClick={() => abrirCerrarModal()}><i className="fa fa-plus mr-1" aria-hidden="true"></i>Nuevo Producto</button>
             <div className="table-responsive mt-4">
                 <table className="table ">
                     <thead className="thead-dark">
@@ -120,8 +120,8 @@ function CRUD(props) {
                                 <td>{producto.desc_prod}.</td>
                                 <td>{producto.stock_actual}</td>
                                 <th>S/.{producto.precio}</th>
-                                <td><button className="btn btn-info" onClick={() => seleccionarProducto(producto, "editar")}>Actualizar</button></td>
-                                <td><button className="btn btn-danger">Eliminar</button></td>
+                                <td><button className="btn btn-info" onClick={() => seleccionarProducto(producto, "editar")}><i className="fa fa-pencil mr-1" aria-hidden="true"></i>Actualizar</button></td>
+                                <td><button className="btn btn-danger"><i className="fa fa-trash-o mr-1" aria-hidden="true"></i>Eliminar</button></td>
                             </tr>
                         ))}
                     </tbody>
@@ -136,7 +136,7 @@ function CRUD(props) {
                     <div className="form-row">
                         <div className="form-group col-md-3">
                             <label>ID. Prod:</label>
-                            <input type="text" className="form-control" placeholder="ID" name="id_prod" onChange={handleChange} />
+                            <input type="number" className="form-control" placeholder="ID" name="id_prod" onChange={handleChange} />
                         </div>
                         <div className="form-group col-md-9">
                             <label>Nombre:</label>
@@ -150,15 +150,20 @@ function CRUD(props) {
                     <div className="form-row">
                         <div className="form-group col-md-4">
                             <label>Stock Mínimo:</label>
-                            <input type="text" className="form-control" placeholder="Stock mínimo" name="stock_min" onChange={handleChange} />
+                            <input type="number" className="form-control" placeholder="Stock mínimo" name="stock_min" onChange={handleChange} />
                         </div>
                         <div className="form-group col-md-4">
                             <label>Stock Actual:</label>
-                            <input type="text" className="form-control" placeholder="Stock actual" name="stock_actual" onChange={handleChange} />
+                            <input type="number" className="form-control" placeholder="Stock actual" name="stock_actual" onChange={handleChange} />
                         </div>
                         <div className="form-group col-md-4">
                             <label>Precio:</label>
-                            <input type="text" className="form-control" placeholder="Precio del producto" name="precio" onChange={handleChange} />
+                            <div className="input-group">
+                                <div className="input-group-prepend">
+                                    <span className="input-group-text">S/.</span>
+                                </div>
+                                <input type="number" className="form-control" placeholder="Precio" name="precio" onChange={handleChange} />
+                            </div>
                         </div>
                     </div>
                 </ModalBody>
@@ -175,7 +180,7 @@ function CRUD(props) {
                     <div className="form-row">
                         <div className="form-group col-md-3">
                             <label>ID. Prod:</label>
-                            <input type="text" className="form-control" readOnly name="id_prod" value={prodSelect && prodSelect.id_prod} onChange={handleChange} />
+                            <input type="number" className="form-control" readOnly name="id_prod" value={prodSelect && prodSelect.id_prod} onChange={handleChange} />
                         </div>
                         <div className="form-group col-md-9">
                             <label>Nombre:</label>
@@ -189,15 +194,20 @@ function CRUD(props) {
                     <div className="form-row">
                         <div className="form-group col-md-4">
                             <label>Stock Mínimo:</label>
-                            <input type="text" className="form-control" name="stock_min" value={prodSelect && prodSelect.stock_min} onChange={handleChange} />
+                            <input type="number" className="form-control" name="stock_min" value={prodSelect && prodSelect.stock_min} onChange={handleChange} />
                         </div>
                         <div className="form-group col-md-4">
                             <label>Stock Actual:</label>
-                            <input type="text" className="form-control" name="stock_actual" value={prodSelect && prodSelect.stock_actual} onChange={handleChange} />
+                            <input type="number" className="form-control" name="stock_actual" value={prodSelect && prodSelect.stock_actual} onChange={handleChange} />
                         </div>
                         <div className="form-group col-md-4">
                             <label>Precio:</label>
-                            <input type="text" className="form-control" name="precio" value={prodSelect && prodSelect.precio} onChange={handleChange} />
+                            <div className="input-group">
+                                <div className="input-group-prepend">
+                                    <span className="input-group-text">S/.</span>
+                                </div>
+                                <input type="number" className="form-control" name="precio" value={prodSelect && prodSelect.precio} onChange={handleChange} />
+                            </div>
                         </div>
                     </div>
                 </ModalBody>
