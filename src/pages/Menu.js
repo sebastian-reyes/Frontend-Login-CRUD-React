@@ -34,12 +34,18 @@ function Menu(props) {
                     </button>
                     <div className="collapse navbar-collapse" id="navtop">
                         <ul className="navbar-nav ml-auto">
+                            <li className="nav-item">
+                                <a className="nav-link" href="https://github.com/sebastian-reyes/Backend_API_ASPNET-Core" target="_BLANK"><i className="fa fa-database mr-1" aria-hidden="true"></i>Backend</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href="https://github.com/sebastian-reyes/Fronend-Login-CRUD-React" target="_BLANK"><i className="fa fa-desktop mr-1" aria-hidden="true"></i>Frontend</a>
+                            </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {cookies.get('username')}
+                                    <i className="fa fa-user mr-1" aria-hidden="true"></i>{cookies.get('username')}
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <button className="dropdown-item" onClick={() => cerrarSesion()}>Cerrar Sesion</button>
+                                    <button className="dropdown-item" onClick={() => cerrarSesion()}><i className="fa fa-sign-out mr-1" aria-hidden="true"></i>Cerrar Sesion</button>
                                 </div>
                             </li>
                         </ul>
