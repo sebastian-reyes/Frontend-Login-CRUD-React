@@ -3,6 +3,7 @@ import '../css/CRUD.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import Swal from 'sweetalert2';
 
 function CRUD(props) {
     const baseUrl = "https://localhost:44374/api/productos";
@@ -24,6 +25,27 @@ function CRUD(props) {
 
     const abrirCerrarModalEditar = () => {
         setModalEditar(!modalEditar);
+    }
+
+    const alertEliminar = (id) => {
+        Swal.fire({
+            title: 'Estás seguro de eliminar este producto?',
+            text: "Los cambios son irreversibles",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, elimínalo!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                DeleteProducto(id);
+                Swal.fire(
+                    'Producto eliminado!',
+                    'El producto fue eliminado.',
+                    'success'
+                );
+            }
+        });
     }
 
     const handleChange = e => {
@@ -55,6 +77,13 @@ function CRUD(props) {
         await axios.post(baseUrl, prodSelect).then(response => {
             setData(data.concat(response.data));
             abrirCerrarModal();
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Producto registrado',
+                showConfirmButton: false,
+                timer: 1000
+            });
         }).catch(error => {
             console.log(error);
         })
@@ -82,10 +111,27 @@ function CRUD(props) {
                 }
             });
             abrirCerrarModalEditar();
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Producto actualizado',
+                showConfirmButton: false,
+                timer: 1500
+            });
         }).catch(error => {
             console.log(error);
         });
     }
+
+    //Petición DELETE
+    const DeleteProducto = async (id) => {
+        await axios.delete(baseUrl + "/" + id).then(response => {
+            setData(data.filter(producto=>producto.id_prod!==response.data));
+        }).catch(error=>{
+            console.log(error);
+        })
+    }
+
     const seleccionarProducto = (prod, caso) => {
         setprodSelect(prod);
         (caso === "editar") && abrirCerrarModalEditar();
@@ -100,6 +146,7 @@ function CRUD(props) {
             <h1 className="text-center">Mantenimiento de tabla Productos</h1>
             <br />
             <button className="btn btn-success" onClick={() => abrirCerrarModal()}><i className="fa fa-plus mr-1" aria-hidden="true"></i>Nuevo Producto</button>
+            <br />
             <div className="table-responsive mt-4">
                 <table className="table ">
                     <thead className="thead-dark">
@@ -121,7 +168,7 @@ function CRUD(props) {
                                 <td>{producto.stock_actual}</td>
                                 <th>S/.{producto.precio}</th>
                                 <td><button className="btn btn-info" onClick={() => seleccionarProducto(producto, "editar")}><i className="fa fa-pencil mr-1" aria-hidden="true"></i>Actualizar</button></td>
-                                <td><button className="btn btn-danger"><i className="fa fa-trash-o mr-1" aria-hidden="true"></i>Eliminar</button></td>
+                                <td><button className="btn btn-danger" onClick={() => alertEliminar(producto.id_prod)}><i className="fa fa-trash-o mr-1" aria-hidden="true"></i>Eliminar</button></td>
                             </tr>
                         ))}
                     </tbody>
