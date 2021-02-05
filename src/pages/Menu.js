@@ -35,10 +35,10 @@ function Menu(props) {
                     <div className="collapse navbar-collapse" id="navtop">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <a className="nav-link" href="https://github.com/sebastian-reyes/Backend_API_ASPNET-Core" target="_BLANK"><i className="fa fa-database mr-1" aria-hidden="true"></i>Backend</a>
+                                <a className="nav-link" href="https://github.com/sebastian-reyes/Backend_API_ASPNET-Core" target="_BLANK" rel='noreferrer'><i className="fa fa-database mr-1" aria-hidden="true"></i>Backend</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="https://github.com/sebastian-reyes/Fronend-Login-CRUD-React" target="_BLANK"><i className="fa fa-desktop mr-1" aria-hidden="true"></i>Frontend</a>
+                                <a className="nav-link" href="https://github.com/sebastian-reyes/Fronend-Login-CRUD-React" target="_BLANK" rel='noreferrer'><i className="fa fa-desktop mr-1" aria-hidden="true"></i>Frontend</a>
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,9 +52,10 @@ function Menu(props) {
                     </div>
                 </div>
             </nav>
-            <div className="container mt-4">
+            <div className="container mt-4 mb-5">
                 <CRUD />
             </div>
+            <br/>
             <nav className="navbar navbar-expand-lg navbar-dark fixed-bottom bg-black">
                 <div className="container">
                     <ul className="navbar-nav ml-auto">
