@@ -54,7 +54,7 @@ function Login(props) {
         <div>
             <div className="sidenav">
                 <div className="login-main-text">
-                    <h2>CRUD en ASP.NET Core + React</h2>
+                    <h2>CRUD ASP .NET Core + React</h2>
                     <p>Ingrese su usuario y contraseña</p>
                 </div>
             </div>
@@ -63,16 +63,16 @@ function Login(props) {
                     <div className="login-form">
                         <h3>Login</h3>
                         <div className="form-group">
-                            <label>Usuario</label>
+                            <label>Usuario:</label>
                             <input type="text" className="form-control" placeholder="Usuario" name="username"
                                 onChange={handleChange} />
                         </div>
                         <div className="form-group">
-                            <label>Contraseña</label>
+                            <label>Contraseña:</label>
                             <input type="password" className="form-control" placeholder="Contraseña" name="password"
                                 onChange={handleChange} />
                         </div>
-                        <button type="submit" className="btn btn-black" onClick={() => iniciarSesion()}>Login</button>
+                        <button type="submit" className="btn btn-black" onClick={() => iniciarSesion()}>Ingresar</button>
                     </div>
                 </div>
             </div>

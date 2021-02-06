@@ -35,12 +35,12 @@ function Menu(props) {
         <div>
             <Navbar bg="light" expand="lg">
                 <div className="container">
-                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar.Brand>CRUD ASP .NET Core</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <Nav.Link href="#home"><i className="fa fa-database mr-1" aria-hidden="true"></i>Backend</Nav.Link>
-                        <Nav.Link href="#link"><i className="fa fa-desktop mr-1" aria-hidden="true"></i>Frontend</Nav.Link>
+                        <Nav.Link href="https://github.com/sebastian-reyes/Backend_API_ASPNET-Core" target="_blank"><i className="fa fa-database mr-1" aria-hidden="true"></i>Backend</Nav.Link>
+                        <Nav.Link href="https://github.com/sebastian-reyes/Fronend-Login-CRUD-React" target="_blank"><i className="fa fa-desktop mr-1" aria-hidden="true"></i>Frontend</Nav.Link>
                         <NavDropdown  title={cookies.get('username')}  id="basic-nav-dropdown">
                             <NavDropdown.Item onClick={() => cerrarSesion()}><i className="fa fa-sign-out mr-1" aria-hidden="true"></i>Cerrar Sesión</NavDropdown.Item>
                         </NavDropdown>
@@ -48,11 +48,11 @@ function Menu(props) {
                 </Navbar.Collapse>
                 </div>
             </Navbar>
-            <div className="container mt-4 mb-5">
+            <div className="container mt-4 mb-2">
                 {mostrarCRUD}
             </div>
             <br />
-            <nav className="navbar navbar-expand-lg navbar-dark fixed-bottom bg-black">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-black">
                 <div className="container">
                     <ul className="navbar-nav ml-auto">
                         <span className="navbar-brand mb-0 h1 ">2021 Sebastián Reyes</span>
