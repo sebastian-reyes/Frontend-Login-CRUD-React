@@ -109,7 +109,8 @@ function CRUD(props) {
                     producto.stock_actual = respuesta.stock_actual;
                     producto.precio = respuesta.precio;
                 }
-            });
+                return producto;
+            }); 
             abrirCerrarModalEditar();
             Swal.fire({
                 position: 'top-end',
@@ -176,8 +177,8 @@ function CRUD(props) {
             </div>
 
             <Modal isOpen={modalInsertar}>
-                <ModalHeader className="bg-black">
-                    <h5 className="text-white">Registrar nuevo producto</h5>
+                <ModalHeader className="bg-black text-white">
+                    Registrar nuevo producto
                 </ModalHeader>
                 <ModalBody>
                     <div className="form-row">
@@ -221,7 +222,7 @@ function CRUD(props) {
             </Modal>
             <Modal isOpen={modalEditar}>
                 <ModalHeader>
-                    <h5>Editar nuevo producto</h5>
+                    Editar nuevo producto
                 </ModalHeader>
                 <ModalBody>
                     <div className="form-row">

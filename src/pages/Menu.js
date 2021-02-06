@@ -5,6 +5,12 @@ import '../css/sin_flechas_input.css';
 import Cookies from 'universal-cookie';
 import CRUD from '../pages/CRUD';
 
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+
+const mostrarCRUD =(
+    <CRUD></CRUD>   
+)
+
 function Menu(props) {
 
     const cookies = new Cookies();
@@ -27,36 +33,25 @@ function Menu(props) {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <Navbar bg="light" expand="lg">
                 <div className="container">
-                    <span className="navbar-brand mb-0 h1">CRUD ASP. NET Core</span>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navtop" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navtop">
-                        <ul className="navbar-nav ml-auto">
-                            <li className="nav-item">
-                                <a className="nav-link" href="https://github.com/sebastian-reyes/Backend_API_ASPNET-Core" target="_BLANK" rel='noreferrer'><i className="fa fa-database mr-1" aria-hidden="true"></i>Backend</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="https://github.com/sebastian-reyes/Fronend-Login-CRUD-React" target="_BLANK" rel='noreferrer'><i className="fa fa-desktop mr-1" aria-hidden="true"></i>Frontend</a>
-                            </li>
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i className="fa fa-user mr-1" aria-hidden="true"></i>{cookies.get('username')}
-                                </a>
-                                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <button className="dropdown-item" onClick={() => cerrarSesion()}><i className="fa fa-sign-out mr-1" aria-hidden="true"></i>Cerrar Sesion</button>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="ml-auto">
+                        <Nav.Link href="#home"><i className="fa fa-database mr-1" aria-hidden="true"></i>Backend</Nav.Link>
+                        <Nav.Link href="#link"><i className="fa fa-desktop mr-1" aria-hidden="true"></i>Frontend</Nav.Link>
+                        <NavDropdown  title={cookies.get('username')}  id="basic-nav-dropdown">
+                            <NavDropdown.Item onClick={() => cerrarSesion()}><i className="fa fa-sign-out mr-1" aria-hidden="true"></i>Cerrar Sesión</NavDropdown.Item>
+                        </NavDropdown>
+                    </Nav>
+                </Navbar.Collapse>
                 </div>
-            </nav>
+            </Navbar>
             <div className="container mt-4 mb-5">
-                <CRUD />
+                {mostrarCRUD}
             </div>
-            <br/>
+            <br />
             <nav className="navbar navbar-expand-lg navbar-dark fixed-bottom bg-black">
                 <div className="container">
                     <ul className="navbar-nav ml-auto">
