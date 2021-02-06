@@ -33,7 +33,7 @@ function Menu(props) {
 
     return (
         <div>
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="light" expand="lg" fixed="top">
                 <div className="container">
                 <Navbar.Brand>CRUD ASP .NET Core</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -48,11 +48,11 @@ function Menu(props) {
                 </Navbar.Collapse>
                 </div>
             </Navbar>
-            <div className="container mt-4 mb-2">
+            <div className="container mt-5 mb-5">
                 {mostrarCRUD}
             </div>
             <br />
-            <nav className="navbar navbar-expand-lg navbar-dark bg-black">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-black fixed-bottom">
                 <div className="container">
                     <ul className="navbar-nav ml-auto">
                         <span className="navbar-brand mb-0 h1 ">2021 Sebastián Reyes</span>

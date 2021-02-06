@@ -143,7 +143,7 @@ function CRUD(props) {
     }, [])
 
     return (
-        <div>
+        <div className="main-crud">
             <h1 className="text-center">Mantenimiento de tabla Productos</h1>
             <br />
             <button className="btn btn-success" onClick={() => abrirCerrarModal()}><i className="fa fa-plus mr-1" aria-hidden="true"></i>Nuevo Producto</button>
