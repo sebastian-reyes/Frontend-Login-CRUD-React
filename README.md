@@ -2,6 +2,12 @@
 
 Proyecto generado con [Create React App](https://github.com/facebook/create-react-app).
 
+## Vista previa
+### Login
+<p align="center">
+  <img src="https://github.com/ebastian-reyes/FrontEnd_Crud_Angular-Spring/blob/master/gh-rf/login.png" alt="img_login" />
+</p>
+
 ## Características
 
 - [x] Inicio de sesión
