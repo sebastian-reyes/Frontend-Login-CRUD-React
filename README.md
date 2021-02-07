@@ -5,7 +5,7 @@ Proyecto generado con [Create React App](https://github.com/facebook/create-reac
 ## Vista previa
 ### Login
 <p align="center">
-  <img src="https://github.com/ebastian-reyes/FrontEnd_Crud_Angular-Spring/blob/master/gh-rf/login.png" alt="img_login" />
+  <img src="https://github.com/sebastian-reyes/Fronend-Login-CRUD-React/blob/master/gh-rf/img/login.png" alt="img_login" />
 </p>
 
 ## Características
